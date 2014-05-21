@@ -1,10 +1,9 @@
-# The ```<picture>``` Element
-This is repository for the [Editor's draft](http://picture.responsiveimages.org)
-of <cite>the picture element</cite> specification.
+# Use Cases and Requirements for “Element Queries”
+[[intro to topic]]
 
 ## Found a bug? Want to contribute something?
 If you found a problem with the document, no matter how small,
-please [file a bug](https://github.com/ResponsiveImagesCG/ri-usecases/issues).
+please [file a bug](https://github.com/ResponsiveImagesCG/eq-usecases/issues).
 
 See also our [contributor's guide](CONTRIBUTING.md).
 
