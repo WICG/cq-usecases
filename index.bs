@@ -6,7 +6,7 @@ ED: http://responsiveimagescg.github.io/eq-usecases/
 Shortname: eq-usecases
 Level: 1
 Editor: Mat Marquis, http://matmarquis.com/
-Abstract: This document captures the use cases and requirements for standardizing a solution for responsive images. The use cases and requirements were gathered with consultation with the HTML Working Group and WHATWG participants, RICG group members, and the general public.
+Abstract: This document captures the use cases and requirements for standardizing a solution for “element queries.” 
 Abstract: Found a bug, typo, or issue? Please file a <a href="https://github.com/ResponsiveImagesCG/eq-usecases/issues">bug on GitHub</a>!
 !Version History: <a href="https://github.com/ResponsiveImagesCG/eq-usecases/commits/gh-pages">Commit History</a>
 !Participate: <a href="irc://irc.w3.org:6665/#respimg">IRC: #respimg on W3C's IRC</a>
