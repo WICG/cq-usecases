@@ -19,21 +19,14 @@ Abstract: Found a bug, typo, or issue? Please file a <a href="https://github.com
 [data-link-type=element]::after { content: ">" }
 </style>
 
-<h2 id='intro'>
-Introduction</h2>
+<h2 id="intro">Introduction</h2>
 
+Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module <!-- How do we link this to an informal definition of “module” as it will used throughout the document? Thinking something like “a self-contained element—containing sub-elements with multiple module-width-specific layouts—that might be used in varying contexts throughout a page.” --> will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.
 
-<h2 id='status'>
-Status of This Document</h2>
+<h2 id="status">Status of This Document</h2>
 
+<h2 id="usecases">Use Cases</h2>
 
-<h2 id='usecases'>
-Use Cases</h2>
+<h2 id="acks">Acknowledgements</h2>
 
-
-<h2 id='acks'>
-Acknowledgements</h2>
-
-	A <a href="http://www.w3.org/community/respimg/participants">complete
-	list of participants</a> of the Responsive Images Community Group is
-	available at the W3C Community Group Website.
+A <a href="http://www.w3.org/community/respimg/participants">complete list of participants</a> of the Responsive Images Community Group is available at the W3C Community Group Website.

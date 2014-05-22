@@ -552,14 +552,14 @@ span.issue, span.note {
 </p>
   <h1 class="p-name no-ref" id=title>Use Cases and Requirements for Element Queries</h1>
   <h2 class="no-num no-toc no-ref heading settled heading" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140521>21 May 2014</span></span></span></h2>
+    <span class=dt-updated><span class=value-title title=20140522>22 May 2014</span></span></span></h2>
   <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=http://responsiveimagescg.github.io/eq-usecases/>http://responsiveimagescg.github.io/eq-usecases/</a><dt>Editor’s Draft:<dd><a href=http://responsiveimagescg.github.io/eq-usecases/>http://responsiveimagescg.github.io/eq-usecases/</a><dt>Test Suite:<dd>None Yet<dt>Editors:
 <dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://matmarquis.com/>Mat Marquis</a><dt>Version History:<dd><a href=https://github.com/ResponsiveImagesCG/eq-usecases/commits/gh-pages>Commit History</a><dt>Participate:<dd><a href=irc://irc.w3.org:6665/#respimg>IRC: #respimg on W3C’s IRC</a><dd><a href=https://github.com/ResponsiveImagesCG/eq-usecases>GitHub</a></dl></div>
   <div data-fill-with=warning></div>
   <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=http://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 21 May 2014,
+In addition, as of 22 May 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -569,16 +569,16 @@ Parts of this work may be from another specification document.  If so, those par
 </div>
 
 <h2 class="no-num no-toc no-ref heading settled heading" id=abstract><span class=content>Abstract</span></h2>
-<p class=p-summary data-fill-with=abstract>This document captures the use cases and requirements for standardizing a solution for responsive images. The use cases and requirements were gathered with consultation with the HTML Working Group and WHATWG participants, RICG group members, and the general public.<p>Found a bug, typo, or issue? Please file a <a href=https://github.com/ResponsiveImagesCG/eq-usecases/issues>bug on GitHub</a>!
+<p class=p-summary data-fill-with=abstract>This document captures the use cases and requirements for standardizing a solution for “element queries.”<p>Found a bug, typo, or issue? Please file a <a href=https://github.com/ResponsiveImagesCG/eq-usecases/issues>bug on GitHub</a>!
 </p>
 <div data-fill-with=at-risk></div>
 
 <h2 class="no-num no-toc no-ref heading settled heading" id=contents><span class=content>Table of Contents</span></h2>
 <div data-fill-with=table-of-contents><ul class=toc>
-	<li><a href=#intro><span class=secno>1</span> Introduction</a>
-	<li><a href=#status><span class=secno>2</span> Status of This Document</a>
-	<li><a href=#usecases><span class=secno>3</span> Use Cases</a>
-	<li><a href=#acks><span class=secno>4</span> Acknowledgements</a>
+	<li><a href=#intro><span class=secno>1</span>Introduction</a>
+	<li><a href=#status><span class=secno>2</span>Status of This Document</a>
+	<li><a href=#usecases><span class=secno>3</span>Use Cases</a>
+	<li><a href=#acks><span class=secno>4</span>Acknowledgements</a>
 	<li><a href=#conformance><span class=secno></span> Conformance</a>
 	<li><a href=#references><span class=secno></span> References</a>
 		<ul class=toc>
@@ -590,24 +590,17 @@ Parts of this work may be from another specification document.  If so, those par
 
 
 
-<h2 class="heading settled heading" data-level=1 id=intro><span class=secno>1 </span><span class=content>
-Introduction</span><a class=self-link href=#intro></a></h2>
+<h2 class="heading settled heading" data-level=1 id=intro><span class=secno>1 </span><span class=content>Introduction</span><a class=self-link href=#intro></a></h2>
 
+<p>Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module  will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.</p>
 
-<h2 class="heading settled heading" data-level=2 id=status><span class=secno>2 </span><span class=content>
-Status of This Document</span><a class=self-link href=#status></a></h2>
+<h2 class="heading settled heading" data-level=2 id=status><span class=secno>2 </span><span class=content>Status of This Document</span><a class=self-link href=#status></a></h2>
 
+<h2 class="heading settled heading" data-level=3 id=usecases><span class=secno>3 </span><span class=content>Use Cases</span><a class=self-link href=#usecases></a></h2>
 
-<h2 class="heading settled heading" data-level=3 id=usecases><span class=secno>3 </span><span class=content>
-Use Cases</span><a class=self-link href=#usecases></a></h2>
+<h2 class="heading settled heading" data-level=4 id=acks><span class=secno>4 </span><span class=content>Acknowledgements</span><a class=self-link href=#acks></a></h2>
 
-
-<h2 class="heading settled heading" data-level=4 id=acks><span class=secno>4 </span><span class=content>
-Acknowledgements</span><a class=self-link href=#acks></a></h2>
-
-<p>A <a href=http://www.w3.org/community/respimg/participants>complete
-	list of participants</a> of the Responsive Images Community Group is
-	available at the W3C Community Group Website</p>
+<p>A <a href=http://www.w3.org/community/respimg/participants>complete list of participants</a> of the Responsive Images Community Group is available at the W3C Community Group Website.</p>
 
 <h2 class="no-ref no-num heading settled heading" id=conformance><span class=content>
 Conformance</span><a class=self-link href=#conformance></a></h2>
