@@ -541,6 +541,7 @@ span.issue, span.note {
 [data-link-type=element] { font-family: monospace; }
 [data-link-type=element]::before { content: "<" }
 [data-link-type=element]::after { content: ">" }
+img { max-width: 100%; }
 </style>
 
 </head>
@@ -594,7 +595,11 @@ Parts of this work may be from another specification document.  If so, those par
 
 <p>Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module  will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.</p>
 
+<p>This document aims to present some of the use cases that an “element query” syntax would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport.</p>
+
 <h2 class="heading settled heading" data-level=2 id=status><span class=secno>2 </span><span class=content>Status of This Document</span><a class=self-link href=#status></a></h2>
+
+<p>This document reflects the efforts of members from the <a href=http://www.w3.org/community/respimg/>Responsive Images Community Group</a> (RICG), and with feedback from the designer/developer community via blog posts, informal polls, and other social media sources. The RICG’s goal for this document is to make sure that author requirements for element queries have been documented.</p>
 
 <h2 class="heading settled heading" data-level=3 id=usecases><span class=secno>3 </span><span class=content>Use Cases</span><a class=self-link href=#usecases></a></h2>
 
