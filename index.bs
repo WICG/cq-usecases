@@ -32,6 +32,24 @@ This document aims to present some of the use cases that an “element query” 
 
 <h2 id="usecases">Use Cases</h2>
 
+<h3 id="primary-case">Primary Use Case</h3>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.
+
+<figure>
+	[TK]
+	<figcaption>An example of a self-contained module that requires multiple breakpoints, many of which are independent of the viewport size.</figcaption>
+</figure>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.
+
+<figure>
+	<img src="images/eq-layout.gif">
+	<figcaption>Some of the contexts in which the module in fig. 1 might appear.</figcaption>
+</figure>
+
 <h2 id="acks">Acknowledgements</h2>
 
 A <a href="http://www.w3.org/community/respimg/participants">complete list of participants</a> of the Responsive Images Community Group is available at the W3C Community Group Website.
