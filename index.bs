@@ -30,9 +30,7 @@ This document aims to present some of the use cases that an “element query” 
 
 <p>This document reflects the efforts of members from the <a href="http://www.w3.org/community/respimg/">Responsive Images Community Group</a> (RICG), and with feedback from the designer/developer community via blog posts, informal polls, and other social media sources. The RICG's goal for this document is to make sure that author requirements for element queries have been documented.</p>
 
-<h2 id="usecases">Use Cases</h2>
-
-<h3 id="primary-case">Primary Use Case</h3>
+<h2 id="usecase">Use Case</h2>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.
 
