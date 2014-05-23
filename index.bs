@@ -28,7 +28,7 @@ This document aims to present some of the use cases that an “element query” 
 
 <h2 id="status">Status of This Document</h2>
 
-<p>This document reflects the efforts of members from the <a href="http://www.w3.org/community/respimg/">Responsive Images Community Group</a> (RICG), and with feedback from the designer/developer community via blog posts, informal polls, and other social media sources. The RICG's goal for this document is to make sure that author requirements for element queries have been documented.</p>
+This document reflects the efforts of members from the <a href="http://www.w3.org/community/respimg/">Responsive Images Community Group</a> (RICG), and with feedback from the designer/developer community via blog posts, informal polls, and other social media sources. The RICG's goal for this document is to make sure that author requirements for element queries have been documented.
 
 <h2 id="usecase">Use Case</h2>
 
