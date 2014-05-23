@@ -36,19 +36,47 @@ This document aims to present some of the use cases that an “element query” 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.
 
-<figure>
-	[TK]
-	<figcaption>An example of a self-contained module that requires multiple breakpoints, many of which are independent of the viewport size.</figcaption>
+<figure id="fig-1">
+	<img src="images/module-layout.gif">
+	<figcaption>An example of a self-contained module that requires a single breakpoint.</figcaption>
 </figure>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.
 
-<figure>
+<figure id="fig-2">
 	<img src="images/eq-layout.gif">
-	<figcaption>Some of the contexts in which the module in fig. 1 might appear.</figcaption>
+	<figcaption>Some of the contexts in which the module in <a href="#fig-1">fig. 1</a> might appear.</figcaption>
 </figure>
+
+<figure id="fig-3">
+	[TK]
+	<figcaption>A stylesheet heatmap showing the redundant styles required to accomodate the layout variations in <a href="#fig-2">fig. 2</a> </figcaption>
+</figure>
+
+<figure id="fig-4">
+	<img src="images/eq-layout2.gif">
+	<figcaption>A wireframe introducing a new context for the modules in <a href="#fig-1">fig. 1</a>, where no breakpoint should apply</figcaption>
+</figure>
+
+<figure id="fig-5">
+	[TK]
+	<figcaption>A stylesheet heatmap showing added redundancy and rewriting of existing styles required to accomodate the layout variation in <a href="#fig-4">fig. 4</a> </figcaption>
+</figure>
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.
+
+<figure id="fig-6">
+	[TK]
+	<figcaption>A stylesheet heatmap showing a lack of redundancy when accomodating the layout variations in <a href="#fig-2">fig. 2</a> and <a href="#fig-4">fig. 4</a>, given a native “element queries” solution</figcaption>
+</figure>
+
+<figure id="fig-7">
+	<img src="images/eq-all-layouts-fixed.gif">
+	<figcaption>A wireframe illustrating how a single modular component using a native “element queries” solution addresses all potential layout contexts <a href="#fig-2">fig. 2</a> and <a href="#fig-4">fig. 4</a>, given a native “element queries” solution</figcaption>
+</figure>
+
 
 <h2 id="acks">Acknowledgements</h2>
 

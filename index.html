@@ -553,14 +553,14 @@ img { max-width: 100%; }
 </p>
   <h1 class="p-name no-ref" id=title>Use Cases and Requirements for Element Queries</h1>
   <h2 class="no-num no-toc no-ref heading settled heading" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140522>22 May 2014</span></span></span></h2>
+    <span class=dt-updated><span class=value-title title=20140523>23 May 2014</span></span></span></h2>
   <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=http://responsiveimagescg.github.io/eq-usecases/>http://responsiveimagescg.github.io/eq-usecases/</a><dt>Editor’s Draft:<dd><a href=http://responsiveimagescg.github.io/eq-usecases/>http://responsiveimagescg.github.io/eq-usecases/</a><dt>Test Suite:<dd>None Yet<dt>Editors:
 <dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://matmarquis.com/>Mat Marquis</a><dt>Version History:<dd><a href=https://github.com/ResponsiveImagesCG/eq-usecases/commits/gh-pages>Commit History</a><dt>Participate:<dd><a href=irc://irc.w3.org:6665/#respimg>IRC: #respimg on W3C’s IRC</a><dd><a href=https://github.com/ResponsiveImagesCG/eq-usecases>GitHub</a></dl></div>
   <div data-fill-with=warning></div>
   <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=http://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 22 May 2014,
+In addition, as of 23 May 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -609,19 +609,47 @@ Parts of this work may be from another specification document.  If so, those par
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.</p>
 
-<figure>
-	[TK]
-	<figcaption>An example of a self-contained module that requires multiple breakpoints, many of which are independent of the viewport size.</figcaption>
+<figure id=fig-1>
+	<img src=images/module-layout.gif>
+	<figcaption>An example of a self-contained module that requires a single breakpoint.</figcaption>
 </figure>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.</p>
 
-<figure>
+<figure id=fig-2>
 	<img src=images/eq-layout.gif>
-	<figcaption>Some of the contexts in which the module in fig. 1 might appear.</figcaption>
+	<figcaption>Some of the contexts in which the module in <a href=#fig-1>fig. 1</a> might appear.</figcaption>
 </figure>
+
+<figure id=fig-3>
+	[TK]
+	<figcaption>A stylesheet heatmap showing the redundant styles required to accomodate the layout variations in <a href=#fig-2>fig. 2</a> </figcaption>
+</figure>
+
+<figure id=fig-4>
+	<img src=images/eq-layout2.gif>
+	<figcaption>A wireframe introducing a new context for the modules in <a href=#fig-1>fig. 1</a>, where no breakpoint should apply</figcaption>
+</figure>
+
+<figure id=fig-5>
+	[TK]
+	<figcaption>A stylesheet heatmap showing added redundancy and rewriting of existing styles required to accomodate the layout variation in <a href=#fig-4>fig. 4</a> </figcaption>
+</figure>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.</p>
+
+<figure id=fig-6>
+	[TK]
+	<figcaption>A stylesheet heatmap showing a lack of redundancy when accomodating the layout variations in <a href=#fig-2>fig. 2</a> and <a href=#fig-4>fig. 4</a>, given a native “element queries” solution</figcaption>
+</figure>
+
+<figure id=fig-7>
+	<img src=images/eq-all-layouts-fixed.gif>
+	<figcaption>A wireframe illustrating how a single modular component using a native “element queries” solution addresses all potential layout contexts <a href=#fig-2>fig. 2</a> and <a href=#fig-4>fig. 4</a>, given a native “element queries” solution</figcaption>
+</figure>
+
 
 <h2 class="heading settled heading" data-level=4 id=acks><span class=secno>4 </span><span class=content>Acknowledgements</span><a class=self-link href=#acks></a></h2>
 
