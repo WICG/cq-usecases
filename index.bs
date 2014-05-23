@@ -74,7 +74,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehender
 
 <figure id="fig-7">
 	<img src="images/eq-all-layouts-fixed.gif">
-	<figcaption>A wireframe illustrating how a single modular component using a native “element queries” solution addresses all potential layout contexts <a href="#fig-2">fig. 2</a> and <a href="#fig-4">fig. 4</a>, given a native “element queries” solution</figcaption>
+	<figcaption>A wireframe illustrating how a single module addresses all potential layout contexts <a href="#fig-2">fig. 2</a> and <a href="#fig-4">fig. 4</a>, given a native “element queries” solution</figcaption>
 </figure>
 
 
