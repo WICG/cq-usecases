@@ -595,7 +595,7 @@ Parts of this work may be from another specification document.  If so, those par
 
 <p>Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module  will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.</p>
 
-<p>This document aims to present some of the use cases that an “element query” syntax would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport.</p>
+<p>This document aims to present some of the use cases that an “element query” syntax would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport. The goal is to demonstate a need for a method of allowing content respond to its container’s dimensions (as opposed to the overall viewport size), to facilitate the constuction of layouts comprised of many modular, independent HTML components with a minimum of duplicated CSS and overrides specific to the modules’ parent containers.</p>
 
 <h2 class="heading settled heading" data-level=2 id=status><span class=secno>2 </span><span class=content>Status of This Document</span><a class=self-link href=#status></a></h2>
 
@@ -603,57 +603,54 @@ Parts of this work may be from another specification document.  If so, those par
 
 <h2 class="heading settled heading" data-level=3 id=usecase><span class=secno>3 </span><span class=content>Use Case</span><a class=self-link href=#usecase></a></h2>
 
-
+<a href=#fig-1>Figure 1</a> is an example of a relatively simple and fully self-contained module’s layout, using only a single <code>min-width</code> <a href=http://dev.w3.org/csswg/mediaqueries-4/#media-query>media query</a> to reflow content.
 
 <figure id=fig-1>
 	<img src=images/module-layout2.gif>
 	<figcaption>An example of a self-contained module that requires a single breakpoint.</figcaption>
 </figure>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.</p>
+<p>In our example site’s homepage layout this module can occupy containing elements of varying widths, governed by multiple breakpoints. In small viewports, we’ll be using a linear layout where each of our five module occupies the full viewport—this layout is covered by the base styles outside of our <a href=http://dev.w3.org/csswg/mediaqueries-4/#media-query>media query</a>. At higher breakpoints, these modules will be displayed side-by-side: three across, then below thatm two across. The three-across layout will be covered by the global styles within our viewport-based media query. Parent-specific overrides will need to be written for the two-across layout, as these modules will need to shift to their wide-format at a smaller viewport size than the ones above them.</p>
 
 <figure id=fig-2>
 	<img src=images/eq-layout1-modules.gif>
 	<figcaption>Some of the contexts in which the module in <a href=#fig-1>fig. 1</a> might appear.</figcaption>
 </figure>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.</p>
+<p>In order to accomplish this we’ll need to duplicate all of this module’s “wide layout” styles into a second viewport-based media query—set to apply at a smaller min-width than the global breakpoint styles—with all of our styles scoped to a parent container. This now means that any future edits or bug fixes to the wide-format layout styles will need to be made in multiple places, and this maintenance cost increases exponentially with each module-level breakpoint required.</p>
 
 <figure id=fig-3>
 	<img src=images/eq-heatmap1.gif>
 	<figcaption>A stylesheet heatmap showing the redundant styles required to accomodate the layout variations in <a href=#fig-2>fig. 2</a> </figcaption>
 </figure>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.</p>
+<p>Similarly, introducing a new context unlike the previous two—shown in <a href=#fig-4>figure 4</a> with the introduction of a “sidebar” on an interior page layout—means duplicating or overriding all of our module’s media queries yet again.</p>
 
 <figure id=fig-4>
 	<img src=images/eq-layout2-modules.gif>
 	<figcaption>A wireframe introducing a new context for the modules in <a href=#fig-1>fig. 1</a>, where no breakpoint should apply</figcaption>
 </figure>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.</p>
+<p>The module in this new sidebar context will never need to reflow to the wide-screen layout, and as such we’re left with two options: scoping all of our modules—with the exception of the two-across layout—to a parent class, or introducing a new media query that overrides all of our wide-layout styles based on the sidebar’s parent class. Despite the relative simplicity of our module and our overall page layouts, we’re left with a bloated and difficult to maintain stylesheet.</p>
 
 <figure id=fig-5>
 	<img src=images/eq-heatmap2.gif>
 	<figcaption>A stylesheet heatmap showing added redundancy and rewriting of existing styles required to accomodate the layout variation in <a href=#fig-4>fig. 4</a> </figcaption>
 </figure>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.</p>
-
-<figure id=fig-6>
-	<img src=images/eq-heatmap3.gif>
-	<figcaption>A stylesheet heatmap showing a lack of redundancy when accomodating the layout variations in <a href=#fig-2>fig. 2</a> and <a href=#fig-4>fig. 4</a>, given a native “element queries” solution</figcaption>
-</figure>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.</p>
+<p>What this document proposes is the addition of an “element query” syntax, allowing breakpoints to be applied based on the width of a parent container. For the purposes of this example, we would be then be able to scope out modules’ layouts to the size of the module itself.</p>
 
 <figure id=fig-7>
 	<img src=images/eq-all-layouts-fixed.gif>
 	<figcaption>A wireframe illustrating how a single module addresses all potential layout contexts <a href=#fig-2>fig. 2</a> and <a href=#fig-4>fig. 4</a>, given a native “element queries” solution</figcaption>
 </figure>
 
+<p>In doing so, we’re able to assemble a layout without parent-specific media queries, styles, or overrides.</p>
+
+<figure id=fig-6>
+	<img src=images/eq-heatmap3.gif>
+	<figcaption>A stylesheet heatmap showing a lack of redundancy when accomodating the layout variations in <a href=#fig-2>fig. 2</a> and <a href=#fig-4>fig. 4</a>, given a native “element queries” solution</figcaption>
+</figure>
 
 <h2 class="heading settled heading" data-level=4 id=acks><span class=secno>4 </span><span class=content>Acknowledgements</span><a class=self-link href=#acks></a></h2>
 
