@@ -5,7 +5,8 @@ Status: ED
 ED: http://responsiveimagescg.github.io/eq-usecases/
 Shortname: eq-usecases
 Level: 1
-Editor: Mat Marquis, http://matmarquis.com/
+Editor: Mat Marquis, Filament Group, http://filamentgroup.com/
+Editor: Scott Jehl, Filament Group, http://filamentgroup.com/
 Abstract: This document captures the use cases and requirements for standardizing a solution for “element queries.” 
 Abstract: Found a bug, typo, or issue? Please file a <a href="https://github.com/ResponsiveImagesCG/eq-usecases/issues">bug on GitHub</a>!
 !Version History: <a href="https://github.com/ResponsiveImagesCG/eq-usecases/commits/gh-pages">Commit History</a>
@@ -22,20 +23,20 @@ img { max-width: 100%; }
 
 <h2 id="intro">Introduction</h2>
 
-Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module <!-- How do we link this to an informal definition of “module” as it will used throughout the document? Thinking something like “a self-contained element—containing sub-elements with multiple module-width-specific layouts—that might be used in varying contexts throughout a page.” --> will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.
+Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module  will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.
 
 This document aims to present some of the use cases that an “element query” syntax would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport.
 
 <h2 id="status">Status of This Document</h2>
 
-This document reflects the efforts of members from the <a href="http://www.w3.org/community/respimg/">Responsive Images Community Group</a> (RICG), and with feedback from the designer/developer community via blog posts, informal polls, and other social media sources. The RICG's goal for this document is to make sure that author requirements for element queries have been documented.
+This document reflects the efforts of members from the <a href="http://www.w3.org/community/respimg/">Responsive Images Community Group</a> (RICG), and with ongoing feedback from the designer/developer community via blog posts, informal polls, and other social media sources. The RICG's goal for this document is to make sure that author requirements for element queries have been documented.
 
 <h2 id="usecase">Use Case</h2>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.
+
 
 <figure id="fig-1">
-	<img src="images/module-layout.gif">
+	<img src="images/module-layout2.gif">
 	<figcaption>An example of a self-contained module that requires a single breakpoint.</figcaption>
 </figure>
 
@@ -44,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehender
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, error, voluptates, voluptas, dolorem nisi expedita dignissimos quas aliquam doloribus necessitatibus omnis ab consequatur? Dicta quae pariatur illum enim nesciunt nemo.
 
 <figure id="fig-2">
-	<img src="images/eq-layout1-labels.gif">
+	<img src="images/eq-layout1-modules.gif">
 	<figcaption>Some of the contexts in which the module in <a href="#fig-1">fig. 1</a> might appear.</figcaption>
 </figure>
 
@@ -58,7 +59,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehender
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, reprehenderit, doloribus obcaecati possimus veniam placeat fugiat maxime aliquid itaque dolores cum ea culpa ab ipsum sed nulla eos quod tempore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam facilis aut perferendis maxime. Aliquam, quae aut iusto iste sint nemo pariatur sit maxime voluptatem suscipit hic quam earum molestiae.
 
 <figure id="fig-4">
-	<img src="images/eq-layout2-labels.gif">
+	<img src="images/eq-layout2-modules.gif">
 	<figcaption>A wireframe introducing a new context for the modules in <a href="#fig-1">fig. 1</a>, where no breakpoint should apply</figcaption>
 </figure>
 
