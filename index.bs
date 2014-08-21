@@ -5,7 +5,7 @@ Status: ED
 ED: http://responsiveimagescg.github.io/eq-usecases/
 Shortname: eq-usecases
 Level: 1
-Editor: Mat Marquis, Filament Group, http://filamentgroup.com/
+Editor: Mat Marquis, RICG, http://responsiveimages.org
 Editor: Scott Jehl, Filament Group, http://filamentgroup.com/
 Abstract: This document captures the use cases and requirements for standardizing a solution for “element queries.” 
 Abstract: Found a bug, typo, or issue? Please file a <a href="https://github.com/ResponsiveImagesCG/eq-usecases/issues">bug on GitHub</a>!
