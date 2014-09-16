@@ -68,7 +68,7 @@ The module in this new sidebar context will never need to reflow to the wider la
 	<figcaption>A stylesheet heatmap showing added redundancy and rewriting of existing styles required to accommodate the layout variation in <a href="#fig-4">fig. 4</a> </figcaption>
 </figure>
 
-What this document proposes is the addition of an “element query” syntax, allowing breakpoints to be applied based on the width of a parent container. For the purposes of this example, we would be then be able to scope out modules’ layouts to the size of the module itself.
+What this document proposes is the addition of an “element query” syntax, allowing breakpoints to be applied based on the width of a parent container. For the purposes of this example, we would then be able to scope out modules’ layouts to the size of the module itself.
 
 <figure id="fig-7">
 	<img src="images/eq-all-layouts-fixed.gif">
