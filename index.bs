@@ -25,7 +25,7 @@ img { max-width: 100%; }
 
 Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module  will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.
 
-This document aims to present some of the use cases that an “element query” syntax would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport. The goal is to demonstrate a need for a method of allowing content respond to its container's dimensions (as opposed to the overall viewport size), to facilitate the construction of layouts comprised of many modular, independent HTML components with a minimum of duplicated CSS and overrides specific to the modules’ parent containers.
+This document aims to present some of the use cases that an “element query” syntax would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport. The goal is to demonstrate a need for a method of allowing content to respond to its container’s dimensions (as opposed to the overall viewport size), to facilitate the construction of layouts comprised of many modular, independent HTML components with a minimum of duplicated CSS and overrides specific to the modules’ parent containers.
 
 <h2 id="status">Status of This Document</h2>
 
@@ -68,7 +68,7 @@ The module in this new sidebar context will never need to reflow to the wider la
 	<figcaption>A stylesheet heatmap showing added redundancy and rewriting of existing styles required to accommodate the layout variation in <a href="#fig-4">fig. 4</a> </figcaption>
 </figure>
 
-What this document proposes is the addition of an “element query” syntax, allowing breakpoints to be applied based on the width of a parent container. For the purposes of this example, we would be then be able to scope out modules’ layouts to the size of the module itself.
+What this document proposes is the addition of an “element query” syntax, allowing breakpoints to be applied based on the width of a parent container. For the purposes of this example, we would then be able to scope out modules’ layouts to the size of the module itself.
 
 <figure id="fig-7">
 	<img src="images/eq-all-layouts-fixed.gif">
