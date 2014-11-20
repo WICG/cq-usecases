@@ -56,7 +56,7 @@ h2 + h3, h3 + h4, h4 + h5, h5 + h6 { margin-top: 1.2em; }
 p.copyright { font-size: small; }
 p.copyright small { font-size: small; }
 
-pre { margin: 1em 0 1em 2em; }
+pre { margin: 1em 0 1em 2em; overflow: auto; }
 pre, code, .idl-code {
   font-size: .9em;
   font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
@@ -64,6 +64,7 @@ pre, code, .idl-code {
 dt dfn code { font-size: inherit; }
 
 dfn { font-weight: bolder; }
+dfn var { font-style: normal; }
 
 s, del {text-decoration: line-through; color: red; }
 u, ins {text-decoration: underline; background: #bfa; }
@@ -79,6 +80,8 @@ dt { font-weight: bold; }
 dd { margin: 0 0 1em 2em; }
 ul, ol { margin-left: 0; padding-left: 2em; }
 li { margin: 0.25em 2em 0.5em 0; padding-left: 0; }
+[data-md] > :first-child { margin-top: 0; }
+[data-md] > :last-child { margin-bottom: 0; }
 
 td.pre {
   white-space: pre-wrap;
@@ -537,6 +540,15 @@ span.issue, span.note {
   border-right-style: solid;
 }
   </style>
+
+  <style>
+  a.logo-ricg { float: left; border-bottom: none; }
+  a.logo-w3c { float: right; border-bottom: none; }
+  p[data-fill-with="logo"] {
+    float: left;
+    width: 100%;
+  }
+  </style>
 <style>
 [data-link-type=element] { font-family: monospace; }
 [data-link-type=element]::before { content: "<" }
@@ -544,23 +556,27 @@ span.issue, span.note {
 img { max-width: 100%; }
 </style>
 
+
+
 </head>
 <body class=h-entry>
 <div class=head>
-  <p data-fill-with=logo><a href=http://responsiveimages.org>
-	<img alt="Responsive Images Community Group" src=https://raw.github.com/ResponsiveImagesCG/meta/master/logo/Web/RICG_logo_small.png>
+  <p data-fill-with=logo><a class=logo-ricg href=http://responsiveimages.org>
+	<img alt="Responsive Images Community Group" height=49 src=https://raw.github.com/ResponsiveImagesCG/meta/master/logo/Web/RICG_logo_small.png>
+</a>
+<a class=logo-w3c href=http://www.w3.org/>
+	<img alt=W3C height=48 src=http://www.w3.org/Icons/w3c_home>
 </a>
 </p>
   <h1 class="p-name no-ref" id=title>Use Cases and Requirements for Element Queries</h1>
-  <h2 class="no-num no-toc no-ref heading settled heading" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140530>30 May 2014</span></span></span></h2>
-  <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=http://responsiveimagescg.github.io/eq-usecases/>http://responsiveimagescg.github.io/eq-usecases/</a><dt>Editor’s Draft:<dd><a href=http://responsiveimagescg.github.io/eq-usecases/>http://responsiveimagescg.github.io/eq-usecases/</a><dt>Test Suite:<dd>None Yet<dt>Editors:
-<dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://filamentgroup.com/>Mat Marquis</a> (<span class="p-org org">Filament Group</span>)<dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://filamentgroup.com/>Scott Jehl</a> (<span class="p-org org">Filament Group</span>)<dt>Version History:<dd><a href=https://github.com/ResponsiveImagesCG/eq-usecases/commits/gh-pages>Commit History</a><dt>Participate:<dd><a href=irc://irc.w3.org:6665/#respimg>IRC: #respimg on W3C’s IRC</a><dd><a href=https://github.com/ResponsiveImagesCG/eq-usecases>GitHub</a></dl></div>
+  <h2 class="no-num no-toc no-ref heading settled" id=subtitle><span class=content>Editor’s Draft,
+    <span class=dt-updated><span class=value-title title=20141120>20 November 2014</span></span></span></h2>
+  <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=http://responsiveimagescg.github.io/eq-usecases/>http://responsiveimagescg.github.io/eq-usecases/</a><dt class=editor>Editors:<dd class=editor><div class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://responsiveimages.org>Mat Marquis</a> (<span class="p-org org">RICG</span>)</div><dd class=editor><div class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://filamentgroup.com/>Scott Jehl</a> (<span class="p-org org">Filament Group</span>)</div><dt>Version History:<dd><span><a href=https://github.com/ResponsiveImagesCG/eq-usecases/commits/gh-pages>Commit History</a></span><dt>Participate:<dd><span><a href=irc://irc.w3.org:6665/#respimg>IRC: #respimg on W3C’s IRC</a></span><dd><span><a href=https://github.com/ResponsiveImagesCG/eq-usecases>GitHub</a></span></dl></div>
   <div data-fill-with=warning></div>
-  <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=http://i.creativecommons.org/p/zero/1.0/80x15.png></a>
+  <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=https://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 30 May 2014,
+In addition, as of 20 November 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -569,41 +585,49 @@ Parts of this work may be from another specification document.  If so, those par
   <hr title="Separator for header">
 </div>
 
-<h2 class="no-num no-toc no-ref heading settled heading" id=abstract><span class=content>Abstract</span></h2>
-<p class=p-summary data-fill-with=abstract>This document captures the use cases and requirements for standardizing a solution for “element queries.”<p>Found a bug, typo, or issue? Please file a <a href=https://github.com/ResponsiveImagesCG/eq-usecases/issues>bug on GitHub</a>!
-</p>
+<h2 class="no-num no-toc no-ref heading settled" id=abstract><span class=content>Abstract</span></h2>
+<div class=p-summary data-fill-with=abstract><p>This document captures the use cases and requirements for standardizing a solution for element queries. The <a href=#usecases>use cases</a> and <a href=#dfn-requirements>requirements</a> were gathered with consultation with the <a href=http://w3c.org/>HTML Working Group</a> and <a href=http://whatwg.org>WHATWG</a> participants, <a href=http://www.w3.org/community/respimg/><abbr title="Responsive Images Community Group">RICG</abbr></a> group members, and the general public.
+
+Found a bug or typo? Please file an <a href=https://github.com/ResponsiveImagesCG/eq-usecases/issues>issue on GitHub</a>!</p>
+
+</div>
+
+<h2 class="no-num no-toc no-ref heading settled" id=status><span class=content>Status of this document</span></h2>
+<div data-fill-with=status>
+This is an unofficial draft. It is provided for discussion only and may change at any moment. Its publication here does not imply endorsement of its contents by W3C. Don’t cite this document other than as work in progress.
+
+<p>If you wish to make comments regarding this document, please send them to <a href=mailto:public-respimg@w3.org>public-respimg@w3.org</a> (<a href="mailto:public-respimg-request@w3.org?subject=subscribe">subscribe</a>, <a href=http://lists.w3.org/Archives/Public/public-respimg/>archives</a>). All comments are welcome.</p>
+</div>
 <div data-fill-with=at-risk></div>
 
-<h2 class="no-num no-toc no-ref heading settled heading" id=contents><span class=content>Table of Contents</span></h2>
-<div data-fill-with=table-of-contents><ul class=toc>
-	<li><a href=#intro><span class=secno>1</span>Introduction</a>
-	<li><a href=#status><span class=secno>2</span>Status of This Document</a>
-	<li><a href=#usecase><span class=secno>3</span>Use Case</a>
-	<li><a href=#acks><span class=secno>4</span>Acknowledgements</a>
-	<li><a href=#conformance><span class=secno></span> Conformance</a>
-	<li><a href=#references><span class=secno></span> References</a>
-		<ul class=toc>
-		<li><a href=#normative><span class=secno></span> Normative References</a>
-		<li><a href=#informative><span class=secno></span> Informative References</a></ul>
-	<li><a href=#index><span class=secno></span> Index</a>
-	<li><a href=#property-index><span class=secno></span> Property index</a></ul></div>
+<h2 class="no-num no-toc no-ref heading settled" id=contents><span class=content>Table of Contents</span></h2>
+<div data-fill-with=table-of-contents role=navigation><ul class=toc role=directory><li><a href=#intro><span class=secno>1</span> <span class=content>Introduction</span></a><li><a href=#solution><span class=secno>2</span> <span class=content>Proposed Solutions</span></a><li><a href=#usecases><span class=secno>3</span> <span class=content>Use Cases</span></a><li><a href=#requirements><span class=secno>4</span> <span class=content>Requirements</span></a><li><a href=#issues><span class=secno>5</span> <span class=content>Open issues</span></a><li><a href=#changes><span class=secno>6</span> <span class=content>Change history</span></a><li><a href=#acks><span class=secno>7</span> <span class=content>Acknowledgements</span></a><li><a href=#conformance><span class=secno></span> <span class=content>
+Conformance</span></a><li><a href=#references><span class=secno></span> <span class=content>References</span></a><ul class=toc><li><a href=#normative><span class=secno></span> <span class=content>Normative References</span></a></ul><li><a href=#index><span class=secno></span> <span class=content>Index</span></a></ul></div>
+<main>
 
 
 
+<h2 class="heading settled" data-level=1 id=intro><span class=secno>1. </span><span class=content>Introduction</span><a class=self-link href=#intro></a></h2>
 
-<h2 class="heading settled heading" data-level=1 id=intro><span class=secno>1 </span><span class=content>Introduction</span><a class=self-link href=#intro></a></h2>
+<p>Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module will respond relative to the size of their containing context rather than the viewport size. Styling based on viewport size alone is prohibitive to the goal of creating modular, independent components, often requiring redundant CSS, complex exception cases, and workarounds. This problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.</p>
 
-<p>Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module  will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.</p>
+<p>For the purposes of this document, an <dfn data-dfn-type=dfn data-noexport="" id=dfn-element-query>element query<a class=self-link href=#dfn-element-query></a></dfn> refers not to a specific syntax or proposed method of addressing the use cases that follow, but a method of controlling styling based on the size of a containing element.</p>
 
+<<<<<<< HEAD
 <p>This document aims to present some of the use cases that an “element query” syntax would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport. The goal is to demonstrate a need for a method of allowing content to respond to its container’s dimensions (as opposed to the overall viewport size), to facilitate the construction of layouts comprised of many modular, independent HTML components with a minimum of duplicated CSS and overrides specific to the modules’ parent containers.</p>
+=======
+<p>This document aims to present some of the use cases that an element query soution would address. The goal is to demonstrate a need for a method of allowing content respond to its container’s dimensions (as opposed to the overall viewport size), to facilitate the construction of layouts comprised of many modular, independent HTML components with a minimum of duplicated CSS and overrides specific to the modules’ parent containers.</p>
+>>>>>>> Removed proposal-esque text.
 
-<h2 class="heading settled heading" data-level=2 id=status><span class=secno>2 </span><span class=content>Status of This Document</span><a class=self-link href=#status></a></h2>
+<p>In formulating the requirements, this document tries to be neutral—it is not predicated on any solution. The document only tries to describe the use cases and what the RICG understands, from practice, would be needed to address the use cases in the form of requirements. The RICG expects that a technical specification can be created to formally address each or all of the requirements (i.e., the <dfn data-dfn-type=dfn data-noexport="" id=dfn-solution>solution<a class=self-link href=#dfn-solution></a></dfn>).</p>
 
-<p>This document reflects the efforts of members from the <a href=http://www.w3.org/community/respimg/>Responsive Images Community Group</a> (RICG), and with ongoing feedback from the designer/developer community via blog posts, informal polls, and other social media sources. The RICG’s goal for this document is to make sure that author requirements for element queries have been documented.</p>
+<h2 class="heading settled" data-level=2 id=solution><span class=secno>2. </span><span class=content>Proposed Solutions</span><a class=self-link href=#solution></a></h2>
 
-<h2 class="heading settled heading" data-level=3 id=usecase><span class=secno>3 </span><span class=content>Use Case</span><a class=self-link href=#usecase></a></h2>
+<h2 class="heading settled" data-level=3 id=usecases><span class=secno>3. </span><span class=content>Use Cases</span><a class=self-link href=#usecases></a></h2>
 
-<a href=#fig-1>Figure 1</a> is an example of a relatively simple and fully self-contained module’s layout, using only a single <code>min-width</code> <a href=http://dev.w3.org/csswg/mediaqueries-4/#media-query>media query</a> to reflow content.
+<p>The following <dfn data-dfn-type=dfn data-noexport="" id=dfn-usecases>use cases<a class=self-link href=#dfn-usecases></a></dfn> represent common usage scenarios:</p>
+
+<p><a href=#fig-1>Figure 1</a> is an example of a relatively simple and fully self-contained module’s layout, using only a single <code>min-width</code> <a href=http://dev.w3.org/csswg/mediaqueries-4/#media-query>media query</a> to reflow content.</p>
 
 <figure id=fig-1>
 	<img src=images/module-layout2.gif>
@@ -635,28 +659,38 @@ Parts of this work may be from another specification document.  If so, those par
 
 <figure id=fig-5>
 	<img src=images/eq-heatmap2.gif>
-	<figcaption>A stylesheet heatmap showing added redundancy and rewriting of existing styles required to accomodate the layout variation in <a href=#fig-4>fig. 4</a> </figcaption>
+	<figcaption>A stylesheet heatmap showing added redundancy and rewriting of existing styles required to accommodate the layout variation in <a href=#fig-4>fig. 4</a> </figcaption>
 </figure>
 
+<<<<<<< HEAD
 <p>What this document proposes is the addition of an “element query” syntax, allowing breakpoints to be applied based on the width of a parent container. For the purposes of this example, we would then be able to scope out modules’ layouts to the size of the module itself.</p>
+=======
+<h2 class="heading settled" data-level=4 id=requirements><span class=secno>4. </span><span class=content>Requirements</span><a class=self-link href=#requirements></a></h2>
+>>>>>>> Removed proposal-esque text.
 
-<figure id=fig-7>
-	<img src=images/eq-all-layouts-fixed.gif>
-	<figcaption>A wireframe illustrating how a single module addresses all potential layout contexts <a href=#fig-2>fig. 2</a> and <a href=#fig-4>fig. 4</a>, given a native “element queries” solution</figcaption>
-</figure>
+<p>The use cases give rise to the following <dfn data-dfn-type=dfn data-noexport="" id=dfn-requirements>requirements<a class=self-link href=#dfn-requirements></a></dfn>:</p>
 
-<p>In doing so, we’re able to assemble a layout without parent-specific media queries, styles, or overrides.</p>
+<ol>
+	<li>
+	</li>
+</ol>
 
-<figure id=fig-6>
-	<img src=images/eq-heatmap3.gif>
-	<figcaption>A stylesheet heatmap showing a lack of redundancy when accomodating the layout variations in <a href=#fig-2>fig. 2</a> and <a href=#fig-4>fig. 4</a>, given a native “element queries” solution</figcaption>
-</figure>
+<h2 class="heading settled" data-level=5 id=issues><span class=secno>5. </span><span class=content>Open issues</span><a class=self-link href=#issues></a></h2>
 
-<h2 class="heading settled heading" data-level=4 id=acks><span class=secno>4 </span><span class=content>Acknowledgements</span><a class=self-link href=#acks></a></h2>
+<p>We are <a href=https://github.com/ResponsiveImagesCG/ri-usecases/issues>tracking open issues</a> on Github. Please help us close them!</p>
+
+<h2 class="heading settled" data-level=6 id=changes><span class=secno>6. </span><span class=content>Change history</span><a class=self-link href=#changes></a></h2>
+
+<p>A <a href=https://github.com/ResponsiveImagesCG/eq-usecases/commits/gh-pages>complete history of changes</a> is available on Github.</p>
+
+<p>You can also see all <a href="https://github.com/ResponsiveImagesCG/ri-usecases/issues?q=is%3Aclosed">closed issues</a> relating to this document.</p>
+
+<h2 class="heading settled" data-level=7 id=acks><span class=secno>7. </span><span class=content>Acknowledgements</span><a class=self-link href=#acks></a></h2>
 
 <p>A <a href=http://www.w3.org/community/respimg/participants>complete list of participants</a> of the Responsive Images Community Group is available at the W3C Community Group Website.</p>
 
-<h2 class="no-ref no-num heading settled heading" id=conformance><span class=content>
+</main>
+<h2 class="no-ref no-num heading settled" id=conformance><span class=content>
 Conformance</span><a class=self-link href=#conformance></a></h2>
 
     <p>
@@ -669,7 +703,7 @@ Conformance</span><a class=self-link href=#conformance></a></h2>
 
     <p>
         All of the text of this specification is normative
-        except sections explicitly marked as non-normative, examples, and notes. <a data-biblio-type=normative data-link-type=biblio href=#rfc2119 title=rfc2119>[RFC2119]</a>
+        except sections explicitly marked as non-normative, examples, and notes. <a data-biblio-type=normative data-link-type=biblio href=#biblio-rfc2119 title=RFC2119>[RFC2119]</a>
 
     <p>
         Examples in this specification are introduced with the words “for example”
@@ -683,28 +717,9 @@ Conformance</span><a class=self-link href=#conformance></a></h2>
         Informative notes begin with the word “Note”
         and are set apart from the normative text with <code>class="note"</code>, like this:
 
-    <p class=note>
+    <p class=note role=note>
         Note, this is an informative note.
 
-<h2 class="no-num no-ref heading settled heading" id=references><span class=content>
-References</span><a class=self-link href=#references></a></h2>
-
-<h3 class="no-num no-ref heading settled heading" id=normative><span class=content>
-Normative References</span><a class=self-link href=#normative></a></h3>
-<div data-fill-with=normative-references><dl><dt id=rfc2119 title=RFC2119><a class=self-link href=#rfc2119></a>[RFC2119]<dd>S. Bradner. <a href=http://www.ietf.org/rfc/rfc2119.txt>Key words for use in RFCs to Indicate Requirement Levels</a>. URL: <a href=http://www.ietf.org/rfc/rfc2119.txt>http://www.ietf.org/rfc/rfc2119.txt</a></dl></div>
-
-<h3 class="no-num no-ref heading settled heading" id=informative><span class=content>
-Informative References</span><a class=self-link href=#informative></a></h3>
-<div data-fill-with=informative-references><dl></dl></div>
-
-<h2 class="no-num no-ref heading settled heading" id=index><span class=content>
-Index</span><a class=self-link href=#index></a></h2>
-<div data-fill-with=index><ul class=indexlist>
-</ul></div>
-
-<h2 class="no-num no-ref heading settled heading" id=property-index><span class=content>
-Property index</span><a class=self-link href=#property-index></a></h2>
-<div data-fill-with=property-index><p>No properties defined.</div>
 
 
-
+<h2 class="no-num heading settled" id=references><span class=content>References</span><a class=self-link href=#references></a></h2><h3 class="no-num heading settled" id=normative><span class=content>Normative References</span><a class=self-link href=#normative></a></h3><dl><dt id=biblio-rfc2119 title=rfc2119><a class=self-link href=#biblio-rfc2119></a>[rfc2119]<dd>S. Bradner. <a href=http://www.ietf.org/rfc/rfc2119.txt>Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href=http://www.ietf.org/rfc/rfc2119.txt>http://www.ietf.org/rfc/rfc2119.txt</a></dl><h2 class="no-num heading settled" id=index><span class=content>Index</span><a class=self-link href=#index></a></h2><ul class=indexlist><li>element query, <a href=#dfn-element-query title="section 1">1</a><li>requirements, <a href=#dfn-requirements title="section 4">4</a><li>solution, <a href=#dfn-solution title="section 1">1</a><li>use cases, <a href=#dfn-usecases title="section 3">3</a></ul>
