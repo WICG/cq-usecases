@@ -29,17 +29,18 @@ If you wish to make comments regarding this document, please send them to <a hre
 
 <h2 id="intro">Introduction</h2>
 
-Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module will respond relative to the size of their containing context rather than the viewport size. Styling based on viewport size alone is prohibitive to the goal of creating modular, independent components, often requiring redundant CSS, complex exception cases, and workarounds. This problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.
+Given a complex responsive layout, developers often require granular control over how the contents of an individual module will respond relative to the size of their parent container rather than the viewport size. This limitation conflicts with the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.
 
 For the purposes of this document, an <dfn id="dfn-element-query">element query</dfn> refers not to a specific syntax or proposed method of addressing the use cases that follow, but a method of controlling styling based on the size of a containing element.
 
-This document aims to present some of the use cases that an “element query” syntax would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport. The goal is to demonstrate a need for a method of allowing content to respond to its container’s dimensions (as opposed to the overall viewport size), to facilitate the construction of layouts comprised of many modular, independent HTML components with a minimum of duplicated CSS and overrides specific to the modules’ parent containers.
+This document presents some of the use cases that “element queries” would solve, in allowing authors to define layouts within an individual module on the basis of the size of the module itself rather than the viewport. The goal is to demonstrate, beyond a reasonable doubt, the need for a standardized method of allowing content to respond to its container’s dimensions (as opposed to the overall viewport size). This would facilitate the construction of layouts comprised of many modular, independent HTML components with a minimum of duplicated CSS and overrides specific to the modules’ parent containers.
 
 In formulating the requirements, this document tries to be neutral—it is not predicated on any solution. The document only tries to describe the use cases and what the RICG understands, from practice, would be needed to address the use cases in the form of requirements. The RICG expects that a technical specification can be created to formally address each or all of the requirements (i.e., the <dfn id="dfn-solution">solution</dfn>).	
 
-<h2 id="solution">Proposed Solutions</h2>
 
 <h2 id="usecases">Use Cases</h2>
+
+This document reflects the efforts of members from the <a href="http://www.w3.org/community/respimg/">Responsive Issues Community Group</a> (RICG), and with ongoing feedback from the designer/developer community via blog posts, informal polls, and other social media sources. The RICG's goal for this document is to make sure that developer requirements for element queries have been captured for the purpose of standardization.
 
 The following <dfn id="dfn-usecases">use cases</dfn> represent common usage scenarios:
 
@@ -50,28 +51,28 @@ The following <dfn id="dfn-usecases">use cases</dfn> represent common usage scen
 	<figcaption>An example of a self-contained module that requires a single breakpoint.</figcaption>
 </figure>
 
-In our example site’s homepage layout this module can occupy containing elements of varying widths, governed by multiple breakpoints. In small viewports, we’ll be using a linear layout where each of our five module occupies the full viewport—this layout is covered by the base styles outside of our <a href="http://dev.w3.org/csswg/mediaqueries-4/#media-query">media query</a>. At higher breakpoints, these modules will be displayed side-by-side: three across, then below that two across. The three-across layout will be covered by the global styles within our viewport-based media query. Parent-specific overrides will need to be written for the two-across layout, as these modules will need to shift to their wide-format at a smaller viewport size than the ones above them.
+In this layout, this module can occupy containing elements of varying widths, governed by multiple breakpoints. In small viewports, we’ll be using a linear layout where each of our five modules occupy the full viewport — this layout is covered by the base styles outside of our <a href="http://dev.w3.org/csswg/mediaqueries-4/#media-query">media query</a>. At higher breakpoints, these modules will be displayed side-by-side: three across, then below that two across. The three-across layout will be covered by the global styles within our viewport-based media query. Parent-specific overrides will need to be written for the two-across layout, as these modules will need to shift to their wide-format at a smaller viewport size than the ones above them.
 
 <figure id="fig-2">
 	<img src="images/eq-layout1-modules.gif">
 	<figcaption>Some of the contexts in which the module in <a href="#fig-1">fig. 1</a> might appear.</figcaption>
 </figure>
 
-In order to accomplish this we’ll need to duplicate all of this module’s “wide layout” styles into a second viewport-based media query—set to apply at a smaller min-width than the global breakpoint styles—with all of our styles scoped to a parent container. This now means that any future edits or bug fixes to the wide-format layout styles will need to be made in multiple places, and this maintenance cost increases exponentially with each module-level breakpoint required.
+In order to accomplish this layout, a developer would need to duplicate all of this module’s “wide layout” styles into a second viewport-based media query—set to apply at a smaller min-width than the global breakpoint styles—with all of our styles scoped to a parent container. This now means that any future edits or bug fixes to the wide-format layout styles will need to be made in multiple places, and this maintenance cost increases exponentially with each module-level breakpoint required.
 
 <figure id="fig-3">
 	<img src="images/eq-heatmap1.gif">
 	<figcaption>A stylesheet heatmap showing the redundant styles required to accomodate the layout variations in <a href="#fig-2">fig. 2</a> </figcaption>
 </figure>
 
-Similarly, introducing a new context unlike the previous two—shown in <a href="#fig-4">figure 4</a> with the introduction of a “sidebar” on an interior page layout—means duplicating or overriding all of our module’s media queries yet again. 
+Similarly, introducing a new context unlike the previous two—shown in <a href="#fig-4">figure 4</a> with the introduction of a “sidebar” on an interior page layout—means duplicating or overriding all of a module’s media queries yet again.
 
 <figure id="fig-4">
 	<img src="images/eq-layout2-modules.gif">
 	<figcaption>A wireframe introducing a new context for the modules in <a href="#fig-1">fig. 1</a>, where no breakpoint should apply</figcaption>
 </figure>
 
-The module in this new sidebar context will never need to reflow to the wider layout, and as such we’re left with two options: scoping all of our modules—with the exception of the two-across layout—to a parent class, or introducing a new media query that overrides all of our wide-layout styles based on the sidebar’s parent class. Despite the relative simplicity of our module and our overall page layouts, we’re left with a bloated and difficult to maintain stylesheet.
+The module in this new sidebar context will never need to reflow to the wider layout, and as such we’re left with two options: scoping all of our modules—with the exception of the two-across layout—to a parent class, or introducing a new media query that overrides all of our wide-layout styles based on the sidebar’s parent class. Despite the relative simplicity of our module and our overall page layouts, one is left with a bloated and difficult to maintain stylesheet.
 
 <figure id="fig-5">
 	<img src="images/eq-heatmap2.gif">
@@ -80,7 +81,7 @@ The module in this new sidebar context will never need to reflow to the wider la
 
 <h2 id="requirements">Requirements</h2>
 
-<p>The use cases give rise to the following <dfn id="dfn-requirements">requirements</dfn>:</p>
+The use cases give rise to the following <dfn id="dfn-requirements">requirements</dfn>:
 
 <ol>
 	<li>
