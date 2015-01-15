@@ -90,13 +90,13 @@ The use cases give rise to the following <dfn id="dfn-requirements">requirements
 
 <h2 id="issues">Open issues</h2>
 
-We are <a href="https://github.com/ResponsiveImagesCG/ri-usecases/issues">tracking open issues</a> on Github. Please help us close them!
+We are <a href="https://github.com/ResponsiveImagesCG/eq-usecases/issues">tracking open issues</a> on Github. Please help us close them!
 
 <h2 id="changes">Change history</h2>
 
 A <a href="https://github.com/ResponsiveImagesCG/eq-usecases/commits/gh-pages">complete history of changes</a> is available on Github.
 
-You can also see all <a href="https://github.com/ResponsiveImagesCG/ri-usecases/issues?q=is%3Aclosed">closed issues</a> relating to this document.
+You can also see all <a href="https://github.com/ResponsiveImagesCG/eq-usecases/issues?q=is%3Aclosed">closed issues</a> relating to this document.
 
 <h2 id="acks">Acknowledgements</h2>
 
