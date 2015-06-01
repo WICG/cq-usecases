@@ -1,4 +1,4 @@
-# Use Cases and Requirements for “Element Queries”
+# Use Cases and Requirements for “Container Queries”
 
 Given a complex responsive layout, developers often require a more granular level of control over how the contents of an individual module will respond relative to the size of their parent container rather than the viewport size. This is prohibitive to the goal of creating modular, independent components, often requiring a number of redundant CSS, complex exception cases, and workarounds, and the problem compounds itself depending on how dramatically a module adapts at each of its breakpoints.
 
