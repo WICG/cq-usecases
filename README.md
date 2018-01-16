@@ -4,7 +4,7 @@ Given a complex responsive layout, developers often require a more granular leve
 
 This document aims to present some of the use cases that an “element query” syntax would solve, by allowing authors to define layouts within an individual module on the basis of the size of the module itself, rather than the viewport.
 
-The spec proper can be found at <https://responsiveimagescg.github.io/cq-usecases/>.
+The spec proper can be found at <https://wicg.github.io/cq-usecases/>.
 
 ## Found a bug? Want to contribute something?
 If you found a problem with the document, no matter how small,
