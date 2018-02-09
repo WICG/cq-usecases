@@ -33,3 +33,5 @@ in designing the feature, you can remove yourself with the above syntax.
 This spec is written using [Bikeshed](http://github.com/tabatkins/bikeshed).
 For configuration options, etc. please see the
 [Bikeshed docs](http://github.com/tabatkins/bikeshed).
+
+You can also join us on [Slack](https://join.slack.com/t/containerqueries/shared_invite/enQtMzA2OTc5MDUwNjk1LTEwMWEzNjcwMTY1MGYzYWMyOGMxM2MzNDM1OGZjMjM3NDNiMDMxYTk0YjQxN2FjYTZkYmZkMDZmOWE1ODRkZWI).

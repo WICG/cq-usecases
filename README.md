@@ -17,3 +17,5 @@ place on the [WICG mailing list](mailto:public-wicg@w3.org).
 
 ## Join us!
 [Join the WICG](http://www.w3.org/community/wicg/) and help make the Web a better place for <s>images</s> everything.
+
+[Join us on Slack](https://join.slack.com/t/containerqueries/shared_invite/enQtMzA2OTc5MDUwNjk1LTEwMWEzNjcwMTY1MGYzYWMyOGMxM2MzNDM1OGZjMjM3NDNiMDMxYTk0YjQxN2FjYTZkYmZkMDZmOWE1ODRkZWI).
